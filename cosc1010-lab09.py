@@ -110,22 +110,22 @@ class Pizzeria:
         self.pizzas.append(your_pizza)
         self.orders += 1
     def getPrice(self,pizza):
-        total_price_per_inch = (int(pizza.size) * price_per_inch)
-        total_price_per_topping = len(pizza.toppings) * price_per_topping
-        self.price = total_price_per_inch + total-price_per_topping
+        total_price_per_inch = (int(pizza.size) * self.price_per_inch)
+        total_price_per_topping = len(pizza.toppings) * self.price_per_topping
+        self.price = total_price_per_inch + total_price_per_topping
     def getReciept(self):
         pizza = self.pizzas[-1]
         print(pizza.sauce)
         print(pizza.size)
         for ingredients in pizza.toppings:
             print(ingredients)
-        total_price_per_inch = (int(pizza.size) * price_per_inch)
-        total_price_per_topping = len(pizza.toppings) * price_per_topping
+        total_price_per_inch = (int(pizza.size) * self.price_per_inch)
+        total_price_per_topping = len(pizza.toppings) * self.price_per_topping
         print(total_price_per_inch)
         print(total_price_per_topping)
-        print(pizza.price)    
+        print(total_price_per_inch + total_price_per_topping)    
     def getNumberOfOrders(self):
-        print(len(self.orders))    
+        print(self.orders)    
         
 
 # - Declare your pizzeria object.
@@ -140,12 +140,13 @@ pappaspizzeria = Pizzeria()
 while True:
     yes = "yes"
     exit = "exit"
-    check = input("Would you like to place an order?")
+    check = input("Would you like to place an order? Type exit if not: ")
     if check.upper() == exit.upper():
         break
     elif check.upper() == yes.upper():
         pappaspizzeria.placeOrder()
         pappaspizzeria.getReciept()
+        pappaspizzeria.order =+ 1
 pappaspizzeria.getNumberOfOrders()
 
 
